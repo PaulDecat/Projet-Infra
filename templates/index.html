@@ -9,11 +9,14 @@
     <header class="header">
         <h1>Test pour Sauvegarde</h1>
     </header>
-    <div class = "container">
-        <form id="post-content" action="/submitpost" method="post">
-            <textarea name="content" placeholder="Content"></textarea>
-            <input type="submit" value="Submit">
-        </form>
-    </div>
+    <textarea style="width:200px; height: 60px;" id="area" placeholder="Ecrivez ici"></textarea>
+    <br>
+    <button onclick="localStorage.removeItem('area');area.value=''">Nettoyer</button>
+    <script>
+        area.value = localStorage.getItem('area');
+        area.oninput = () => {
+          localStorage.setItem('area', area.value)
+        };
+    </script>
 </body>
 </html>
